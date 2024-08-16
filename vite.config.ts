@@ -53,7 +53,7 @@ const viteConfig = defineConfig((mode: ConfigEnv) => {
 			port: env.VITE_PORT as unknown as number, // 服务器端口号
 			open: env.VITE_OPEN === 'true', // 是否自动打开浏览器
 			hmr: true, // 启用热更新
-			proxy: {
+			proxy: { // 开发环境中通过 Vite 的 proxy 进行请求代理，发布环境中通过 Nginx 的 proxy_pass 进行请求代理, 本质上都是客户端(浏览器)访问api接口, 两者的目的是一致的, 主要是为了解决跨域问题
 				'/api/gen': {
 					//单体架构下特殊处理代码生成模块代理
 					target: env.VITE_IS_MICRO === 'true' ? env.VITE_ADMIN_PROXY_PATH : env.VITE_GEN_PROXY_PATH,
