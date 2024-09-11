@@ -10,7 +10,8 @@
 		"build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build",
 		"build:docker": "cross-env NODE_OPTIONS=--max-old-space-size=4096 vite build --outDir ./docker/dist/",
 		"lint:eslint": "eslint --fix --ext .js,.cjs,.mjs,.ts,.vue ./src",
-		"prettier": "prettier --write ."
+		"prettier": "prettier --write .",
+		"bootstrap": "rm -rf node_modules && npm install --registry=https://registry.npmmirror.com"
 	},
 	"dependencies": {
 		"@element-plus/icons-vue": "2.3.1",
